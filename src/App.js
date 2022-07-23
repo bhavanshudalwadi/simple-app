@@ -5,11 +5,11 @@ import Navbar from './components/Navbar';
 import Alert from './components/Alert';
 import About from './components/About';
 import TextForm from './components/TextForm';
-import {
-  BrowserRouter,
-  Routes,
-  Route,
-} from "react-router-dom";
+// import {
+//   BrowserRouter,
+//   Routes,
+//   Route,
+// } from "react-router-dom";
 
 function App() {
 
@@ -58,20 +58,20 @@ function App() {
 
   return (
     <>
-    <BrowserRouter>
-      
+    {/* <BrowserRouter> */}
         <Navbar title="Simple React App" about="About Us" mode={mode} titleMode={titleMode} changeTitle={toggleTitle} changeMode={toggleMode}/>   {/* Passing function in props */}
         {/* <Navbar /> */}
         <Alert alert={alert}/>
         <div className="container my-3">
-          <Routes>
+          {/* <Routes>
             <Route index element={<TextForm showAlert={showAlert} heading="Enter text to check" mode={mode} />} />
             <Route path='about' element={<About />} />
-          </Routes>
-          {/* <TextForm showAlert={showAlert} heading="Enter text to check" mode={mode} />    Passing function in props */}
+          </Routes> */}
+
+          <TextForm showAlert={showAlert} heading="Enter text to check" mode={mode} />    Passing function in props
           {/* <About /> */}
         </div>
-    </BrowserRouter>
+    {/* </BrowserRouter> */}
     </>
   );
 }
