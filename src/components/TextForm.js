@@ -49,21 +49,21 @@ export default function TextForm(props) {
             <div className="container">
                 <h2>{props.heading}</h2>
                 <div className="mb-2">
-                    <textarea className="form-control" value={text} onChange={handleMyTxtOnChange} style={{backgroundColor: props.mode === 'dark'?'#ccc':'white'}} id="myText" rows="5"></textarea>
+                    <textarea id='text' className="form-control" value={text} onChange={handleMyTxtOnChange} style={{backgroundColor: props.mode === 'dark'?'hwb(222deg 10% 46%)':'white', color: props.mode === 'dark'?'white':'black'}} rows="5"></textarea>
                 </div>
-                <button className="btn btn-primary mx-2 my-1" onClick={handleUpClick}>Convert To UPPERCASE</button>
-                <button className="btn btn-primary mx-2 my-1" onClick={handleLowClick}>Convert To lowercase</button>
-                <button className="btn btn-primary mx-2 my-1" onClick={handleCapClick}>Convert To Capitalized</button>
-                <button className="btn btn-primary mx-2 my-1" onClick={handleCpyClick}>Copy To Clipboard</button>
-                <button className="btn btn-primary mx-2 my-1" onClick={handleExSpClick}>Remove Extra Spaces</button>
-                <button className="btn btn-primary mx-2 my-1" onClick={handleClrClick}>Clear Text</button>
+                <button disabled={text.length === 0} className="btn btn-primary mx-2 my-1" onClick={handleUpClick}>Convert To UPPERCASE</button>
+                <button disabled={text.length === 0} className="btn btn-primary mx-2 my-1" onClick={handleLowClick}>Convert To lowercase</button>
+                <button disabled={text.length === 0} className="btn btn-primary mx-2 my-1" onClick={handleCapClick}>Convert To Capitalized</button>
+                <button disabled={text.length === 0} className="btn btn-primary mx-2 my-1" onClick={handleCpyClick}>Copy To Clipboard</button>
+                <button disabled={text.length === 0} className="btn btn-primary mx-2 my-1" onClick={handleExSpClick}>Remove Extra Spaces</button>
+                <button disabled={text.length === 0} className="btn btn-primary mx-2 my-1" onClick={handleClrClick}>Clear Text</button>
             </div>
             <div className="container my-3">
                 <h3>Text Summary</h3>
-                <p>{text.split(" ").length} Words &amp; {text.length} Charecters.</p>
-                <p>Average {text.split(" ").length * 0.008} Minutes required to read this.</p>
+                <p>{text.split(/\s/).filter((ele) => ele!=='').length} Words &amp; {text.length} Charecters.</p>
+                <p>{text.split(/\s/).filter((ele) => ele!=='').length * 0.08} Minutes required to read this.</p>
                 <h3>Preview</h3>
-                <p>{text?text:'NO TEXT'}</p>
+                <p>{text?text:'Nothing to preview'}</p>
             </div>
         </>
     )
